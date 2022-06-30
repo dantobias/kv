@@ -1,5 +1,5 @@
 defmodule KV.Bucket do
-  use Agent
+  use Agent, restart: :temporary
 
   @doc """
   Starts a new bucket.
@@ -24,7 +24,7 @@ defmodule KV.Bucket do
 
   @doc """
   Deletes `key` from `bucket`.
-  
+
   Returns the current value of `key`, if `key` exists.
   """
   def delete(bucket, key) do
